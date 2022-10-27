@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Buzzor</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    	.jumbotron
+    	{
+    		background-color:#1f1f3c;
+    	}
+    	.row
+    	{
+    		border:solid 1px grey;
+    		box-shadow:2px 2px 10px grey;
+    	}
+    	.nav-link
+    	{
+    		color:white;
+    	}
+    	.active
+    	{
+    		color:white;
+    	}
+    </style>
+</head>
+	<body>
+		<div class="container mt-3">
+		  <div class="mt-4 p-5 jumbotron text-white rounded">
+		    <h1>Buzzer</h1><hr>
+		      <div id="main-content">
+                	<div class="responsive">
+                    		<iframe width="100%" height="500px" src="https://www.youtube-nocookie.com/embed/MhNw8UG1SDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                	</div>
+		    <p>A buzzer or beeper is an audio signaling device,which may be mechanical, electromechanical, or piezoelectric (piezo for short).
+            Typical uses of buzzers and beepers include alarm devices, timers, train and confirmation of user input such as a mouse click or keystroke. </p><br>
+            <h5>Specifications</h5>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Longer pin is the positive pin<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Shorter pin is the negative pin<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Rated Voltage:5V<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Operating Voltage:4~8 V<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Max Rated Current:≤32 mA<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Min. Sound Output at 10cm: 85 dB<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Resonant Frequency:2300 ±300 Hz<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Operating Temperature: -20°C to 45°C<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Height(excluding pins):9.16 mm (0.36")<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Diameter(excluding pins):11.78 mm (0.46")<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Weight:1.6 g (0.057 oz)<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Storage Temperature Range: -20 to +70 ℃<br><br>
+			<div class="row">
+				<div class="col-sm-4"><br>
+        				<img src="img/buzzer.jpg" height="130px" width="80%">
+				</div>
+				<div class="col-sm-8"><br>
+					<table class="table table-warning">
+					    <tr>
+						<th>On Sensor</th>
+						<th>On Raspberry</th>
+						<th>On Arduino</th>
+					    </tr>
+					    <tr>
+						<td>Longer Pin</td>
+						<td>GPIO VCC Pin of 5V</td>
+						<td>Pin 11</td>
+					    </tr>
+					    <tr>
+						<td>Shorter Pin</td>
+						<td>GPIO Ground Pin</td>
+						<td>Ground (GND)</td>
+					    </tr>
+					</table>
+				</div>
+			</div><br>
+	<div class="container">
+		<p><b>It can be worked with<br> 
+		<ul><li>Arduino board</li><li>Raspberry pi</li><li>Nodemcu</li></b></p>
+	</div>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#arduino" type="button" role="tab" aria-controls="home" aria-selected="true">Arduino</button>
+	  </li>
+	  <!--
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#raspberry" type="button" role="tab" aria-controls="profile" aria-selected="false">Raspberry pi</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#nodemcu" type="button" role="tab" aria-controls="contact" aria-selected="false">Nodemcu</button>
+	  </li>-->
+	</ul><br>
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade show active text-white" id="arduino" role="tabpanel" aria-labelledby="home-tab">
+	  		<h3>Working of push button with Arduino Uno</h3>
+	<img src="img/buzzer_arduino.png">
+        <p>
+               <pre>           
+   //Buzzer with tone().
+    void setup() {
+        pinMode(11,OUTPUT);
+    }
+
+    void loop() {
+        tone(11,200);
+        delay(500);
+        noTone(11);
+        delay(500);
+    }
+
+        </pre>
+        </p>
+	  </div>
+	  <div class="tab-pane fade" id="raspberry" role="tabpanel" aria-labelledby="profile-tab">...</div>
+	  <div class="tab-pane fade" id="nodemcu" role="tabpanel" aria-labelledby="contact-tab">...</div>
+	</div>	
+	<br>
+			
+
+		  </div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DHT sensor</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    	.jumbotron
+    	{
+    		background-color:#1f1f3c;
+    	}
+    	.row
+    	{
+    		border:solid 1px grey;
+    		box-shadow:2px 2px 10px grey;
+    	}
+    	.nav-link
+    	{
+    		color:white;
+    	}
+    	.active
+    	{
+    		color:white;
+    	}
+    </style>
+</head>
+	<body>
+		<div class="container mt-3">
+		  <div class="mt-4 p-5 jumbotron text-white rounded">
+		    <h1>DHT Sensor</h1><hr>
+		      <div id="main-content">
+                	<div class="responsive">
+                    		<iframe width="100%" height="500px" src="https://www.youtube.com/embed/1CaFxZiL2T4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                	</div>
+		    <p>The DHT11 is a digital temperature and humidity sensor.
+            		It uses a humidity sensor and a thermistor to measure the
+            		surrounding air and gives a digital signal on the data pin</p><br>
+            	   <h5>Specifications</h5>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Operating Voltage: 3.5V to 5.5V<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Operating current: 0.3mA (measuring) 60uA (standby)<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Output: Serial data<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Temperature Range: 0°C to 50°C<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Humidity Range: 20% to 90%<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Resolution: Temperature and Humidity both are 16-bit<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Accuracy: ±1°C and ±1%<br><br>
+			
+			<div class="row">
+				<div class="col-sm-4"><br>
+        				<img src="img/dht11.png" height="160px" width="100%">
+				</div>
+				<div class="col-sm-8"><br>
+					<table class="table table-warning">
+					    <tr>
+						<th>On Sensor</th>
+						<th>On Raspberry</th>
+						<th>On Arduino</th>
+					    </tr>
+					    <tr>
+						<td>Vcc</td>
+						<td>Power supply 3.5V to 5V (pin 1 or 2)</td>
+						<td>Power supply 3.5V to 5V</td>
+					    </tr>
+					    <tr>
+						<td>Data</td>
+						<td>Serial data (pin 7)</td>
+						<td>Data pin (pin D2)</td>
+					    </tr>
+					    <tr>
+						<td>Ground(GND)</td>
+						<td>Ground (pin 6)</td>
+						<td>Ground (GND)</td>
+					    </tr>
+					</table>
+				</div>
+			</div><br>
+	<div class="container">
+		<p><b>It can be worked with<br> 
+		<ul><li>Arduino board</li><li>Raspberry pi</li><li>Nodemcu</li></b></p>
+	</div>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#arduino" type="button" role="tab" aria-controls="home" aria-selected="true">Arduino</button>
+	  </li>
+	 <!-- <li class="nav-item" role="presentation">
+	    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#raspberry" type="button" role="tab" aria-controls="profile" aria-selected="false">Raspberry pi</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#nodemcu" type="button" role="tab" aria-controls="contact" aria-selected="false">Nodemcu</button>
+	  </li> -->
+	</ul><br>
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade show active text-white" id="arduino" role="tabpanel" aria-labelledby="home-tab">
+	  		<h3>Working of DHT with Arduino Uno</h3>
+	<img src="img/dht11_fritzing.jpg" width="" height="">
+        <p>
+        <pre>
+#include "DHT.h"
+#define DHTPIN 2                      // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11                 // DHT 11
+DHT dht(DHTPIN, DHTTYPE);             // Initialize DHT sensor.
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+void loop() {
+  delay(2000);                        // Wait a few seconds between measurements.
+  float h = dht.readHumidity();       // Read temperature as Celsius (the default)
+  float t = dht.readTemperature();    // Read temperature as Fahrenheit (isFahrenheit = true)
+                                      // Check if any reads failed and exit early (to try again).
+  if (isnan(h) || isnan(t) || isnan(f)) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
+  } 
+  Serial.print(" Humidity: ");
+  Serial.print(h);
+  Serial.print("%  Temperature: ");
+  Serial.print(t);
+  Serial.print(F("C "));
+}
+        </pre>
+        </p>
+	  </div>
+	  <div class="tab-pane fade" id="raspberry" role="tabpanel" aria-labelledby="profile-tab">...</div>
+	  <div class="tab-pane fade" id="nodemcu" role="tabpanel" aria-labelledby="contact-tab">...</div>
+	</div>	
+	<br>
+			
+
+		  </div>
+		</div>
+	</body>
+</html>

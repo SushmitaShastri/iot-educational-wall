@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Potentiometer</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    	.jumbotron
+    	{
+    		background-color:#1f1f3c;
+    	}
+    	.row
+    	{
+    		border:solid 1px grey;
+    		box-shadow:2px 2px 10px grey;
+    	}
+    	.nav-link
+    	{
+    		color:white;
+    	}
+    	.active
+    	{
+    		color:white;
+    	}
+    </style>
+</head>
+	<body>
+		<div class="container mt-3">
+		  <div class="mt-4 p-5 jumbotron text-white rounded">
+		    <h1>Potentiometer</h1><hr>
+		      <div id="main-content">
+		      <!--
+                	<div class="responsive">
+                    		<iframe width="100%" height="500px" src="https://www.youtube-nocookie.com/embed/MhNw8UG1SDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                	</div> -->
+		    <p>The potentiometer structure consists of a sliding contact (called wiper), a resistive element, electrical terminals, and a housing.
+
+The sliding contact moves along the resistive element, while the housing consists of the wiper and the element.<br>
+Working: The fixed input voltage is applied across the two ends terminal of a potentiometer, which further produces the adjustable output voltage at the wiper or slider.
+
+As the slider moves from one end to another, the divider can vary the output voltage from maximum to Ground.</p><br>
+            	   <h5>Specifications</h5>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Type: Rotary a.k.a Radio POT<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Available in different resistance values like 500Ω, 1K, 2K, 5K, 10K, 22K, 47K, 50K, 100K, 220K, 470K, 500K, 1 M. <br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Power Rating: 0.3W<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Ranging Distance : 2cm – 400cm/4m<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Maximum Input Voltage: 200Vdc<br>
+		        <i class="fa fa-fast-forward" style="font-size:13px;"></i> Rotational Life: 2000K cycles<br>
+			<div class="row">
+				<div class="col-sm-4"><br>
+        				<img src="img/Potentiometer.jpg" height="200px" width="100%">
+				</div>
+				<div class="col-sm-8"><br>
+					<table class="table table-warning">
+					    <tr>
+						<th>On Sensor</th>
+						<th>On Raspberry</th>
+						<th>On Arduino</th>
+					    </tr>
+					    <tr>
+						<td>Vcc</td>
+						<td></td>
+						<td>5v</td>
+					    </tr>
+					    <tr>
+						<td>GND</td>
+						<td></td>
+						<td>GND</td>
+					    </tr>
+					    <tr>
+						<td>Data</td>
+						<td></td>
+						<td>A0</td>
+					    </tr>
+					</table>
+				</div>
+			</div><br>
+	<div class="container">
+		<p><b>It can be worked with<br> 
+		<ul><li>Arduino board</li><li>Raspberry pi</li><li>Nodemcu</li></b></p>
+	</div>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#arduino" type="button" role="tab" aria-controls="home" aria-selected="true">Arduino</button>
+	  </li>
+	  <!--
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#raspberry" type="button" role="tab" aria-controls="profile" aria-selected="false">Raspberry pi</button>
+	  </li>
+	  <li class="nav-item" role="presentation">
+	    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#nodemcu" type="button" role="tab" aria-controls="contact" aria-selected="false">Nodemcu</button>
+	  </li> -->
+	</ul><br>
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade show active text-white" id="arduino" role="tabpanel" aria-labelledby="home-tab">
+	  		<h3>Working of potentiometer with Arduino Uno</h3>
+	<img src="img/potentiometer_fritzing.png">
+               <p>
+        <pre>
+#define POTENTIOMETER_PIN A0
+void setup() 
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.println(analogRead(POTENTIOMETER_PIN));
+  delay(100);
+}
+        </pre>
+        </p>
+	  </div>
+	  <div class="tab-pane fade" id="raspberry" role="tabpanel" aria-labelledby="profile-tab">...</div>
+	  <div class="tab-pane fade" id="nodemcu" role="tabpanel" aria-labelledby="contact-tab">...</div>
+	</div>	
+	<br>
+			
+
+		  </div>
+		</div>
+	</body>
+</html>
