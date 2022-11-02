@@ -37,9 +37,6 @@
 		  <div class="mt-4 p-5 jumbotron text-white rounded">
 		    <h1>LED</h1><hr>
 		      <div id="main-content">
-                	<div class="responsive">
-                    		<iframe width="100%" height="500px" src="https://www.youtube-nocookie.com/embed/l8n28YiT2Rw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                	</div>
 		    <p>
 LEDs (light-emitting diodes) are small, bright, power-efficient lights commonly used in electronic products. An LED light is a polarized part, meaning it has to be connected to a circuit in a certain way to work properly.</p><br>
 			<div class="row">
@@ -73,17 +70,20 @@ LEDs (light-emitting diodes) are small, bright, power-efficient lights commonly 
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 	  <li class="nav-item" role="presentation">
 	    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#arduino" type="button" role="tab" aria-controls="home" aria-selected="true">Arduino</button>
-	  </li><!--
+	  </li>
 	  <li class="nav-item" role="presentation">
 	    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#raspberry" type="button" role="tab" aria-controls="profile" aria-selected="false">Raspberry pi</button>
-	  </li>
+	  </li><!--
 	  <li class="nav-item" role="presentation">
 	    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#nodemcu" type="button" role="tab" aria-controls="contact" aria-selected="false">Nodemcu</button>
 	  </li> -->
 	</ul><br>
 	<div class="tab-content" id="myTabContent">
 	  <div class="tab-pane fade show active text-white" id="arduino" role="tabpanel" aria-labelledby="home-tab">
-	  		<h3>Working of DHT with Arduino Uno</h3>
+	 <h3>Working of DHT with Arduino Uno</h3>
+	<div class="responsive">
+        	<iframe width="100%" height="500px" src="https://www.youtube-nocookie.com/embed/l8n28YiT2Rw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
 	<img src="img/led_fritzing.png">
         <pre>           
             #define LED 7  // The pin the LED is connected to
@@ -96,8 +96,12 @@ LEDs (light-emitting diodes) are small, bright, power-efficient lights commonly 
             }
         </pre>
 	  </div>
-	  <div class="tab-pane fade" id="raspberry" role="tabpanel" aria-labelledby="profile-tab">...</div>
-	  <div class="tab-pane fade" id="nodemcu" role="tabpanel" aria-labelledby="contact-tab">...</div>
+	  <div class="tab-pane fade" id="raspberry" role="tabpanel" aria-labelledby="profile-tab">
+	  	<div class="responsive">
+        		<iframe width="100%" height="500px" src="https://www.youtube-nocookie.com/embed/3ve_S-CAkE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        	</div>
+	  </div>
+	<!--  <div class="tab-pane fade" id="nodemcu" role="tabpanel" aria-labelledby="contact-tab">...</div>  -->
 	</div>	
 	<br>
 			
